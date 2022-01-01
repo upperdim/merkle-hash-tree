@@ -79,13 +79,11 @@ def test_print():
         print('--------------------------------')
 
 
-def check_integrity(root1, root2):
-    print(('Data is genuine.' if root1.hash == root2.hash else 'Data is altered!'))
-
-        
-def main():
-    # test_print()
-
+def test_comparison():
+    def check_integrity(root1, root2):
+        print(('Data is genuine.' if root1.hash == root2.hash else 'Data is altered!'))
+    
+    # Reference and comparison data
     original_data = ['this', 'data', 'is', 'intact']
     original_tree = MerkleTree.generate_tree(original_data)
     modified_data = ['this', 'data', 'is', 'intact']
@@ -101,6 +99,11 @@ def main():
     modified_data[3] = 'intact'
     modified_tree = MerkleTree.generate_tree(modified_data)
     check_integrity(original_data, modified_data)
+
+
+def main():
+    # test_print()
+    test_comparison()
 
 
 if __name__ == '__main__':
