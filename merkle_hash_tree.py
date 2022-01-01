@@ -88,17 +88,17 @@ def test_comparison():
     original_tree = MerkleTree.generate_tree(original_data)
     modified_data = ['this', 'data', 'is', 'intact']
     modified_tree = MerkleTree.generate_tree(modified_data)
-    check_integrity(original_data, modified_data)
+    check_integrity(original_tree, modified_tree)
 
     # Modify the comparison data
     modified_data[3] = 'MODIFIED!'
     modified_tree = MerkleTree.generate_tree(modified_data)
-    check_integrity(original_data, modified_data)
+    check_integrity(original_tree, modified_tree)
 
     # Revert modifications
     modified_data[3] = 'intact'
     modified_tree = MerkleTree.generate_tree(modified_data)
-    check_integrity(original_data, modified_data)
+    check_integrity(original_tree, modified_tree)
 
 
 def main():
